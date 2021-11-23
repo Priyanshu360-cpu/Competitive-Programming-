@@ -1,3 +1,0 @@
-b,temp = input(), list(map(int, raw_input().split()))
-a = set(temp)
-print ((sum(a)*b)-(sum(temp)))//(b-1)
