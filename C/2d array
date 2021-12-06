@@ -1,0 +1,65 @@
+#include <stdio.h>
+#define newline printf("\n");
+int main(void) { 
+    int a,b;
+    scanf("%d%d",&a,&b);
+    int c[a][b];
+    int p =1;
+    for(int i =0;i<=a;i++){
+        for(int j=0;j<=b;j++){
+            c[i][j]=p;
+            p++;
+        }
+    }
+    for(int i =0;i<=a;i++){
+        for(int j=0;j<=b;j++){
+            printf("%d",c[i][j]);
+            newline
+        }
+    } 
+    newline
+     p =1;
+    for(int i =0;i<=a;i++){
+        for(int j=0;j<=i;j++){
+            c[i][j]=p;
+            p++;
+        }
+    }
+    for(int i =0;i<=a;i++){
+        for(int j=0;j<=i;j++){
+            printf("%d",c[i][j]);
+            newline
+        }
+    }
+    int d[2][2] = {{1,2},{3,4}};
+    int f = 0;
+    for(int i=0;i<=1;i++){ 
+        f=0;
+        for(int j=0;j<=2;j++){
+            f=f+d[i][j];
+        } 
+        printf("%d",f);
+        newline
+    }
+    newline
+    for(int i=0;i<=1;i++){ 
+            f=f+d[i][i];
+        } 
+        printf("%d",f);
+        newline 
+        p=0;
+        for(int i =0;i<=a;i++){
+            if(i%2==0&&i!=0){
+                for(int j=b;j>=0;j--){
+                    c[j][i]=p;
+                    p++;
+                }
+            }
+            else{
+                for(int j=0;j<=b;j++){
+                    c[j][i]=p;
+                    p++;
+                }
+            }
+        }
+}
