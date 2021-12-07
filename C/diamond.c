@@ -12,14 +12,14 @@ int main(void) {
         }
     } 
     
-    for(int i = 0;i<=5;i++){
-        int j =5;
+    for(int i = 0;i<=a;i++){
+        int j =b;
         for(j=j-1;j>=0;j--){
             printf("%d",c[i][j]);
         }
         newline
     } 
-     for(int i = 5;i>=0;i--){
+     for(int i = a;i>=0;i--){
         int j =0;
         for(j=j+1;j>=0;j--){
             printf("%d",c[i][j]);
@@ -27,16 +27,16 @@ int main(void) {
         }
         newline
     } 
-    for(int i = 5;i>=5/2;i--){
-        int j =5;
+    for(int i = a;i>=a/2;i--){
+        int j =b;
         for(j=i;j>=0;j--){
             printf("%d",c[i][j]);
             
         }
         newline
     } 
-    for(int i=0;i<=5/2;i++){
-        int j=5;
+    for(int i=0;i<=i/2;i++){
+        int j=b;
         for(j=j--;j>=0;j--){
             printf("%d",c[i][j])
         }
