@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #define line printf("\n");
 int main(void) {
@@ -17,8 +18,10 @@ int main(void) {
 	        y=j+2;
 	        f=p+1;
 	        if(p+1>=0&&j+2>=0){
+	            if(p+1<=8&&j+2<=8){
 	        printf("%d %d",j+2,p+1);
 	        line
+	        }
 	        }
 	        s[0][0]=y;
 	        s[0][1]=p;
@@ -29,8 +32,10 @@ int main(void) {
 	         y=j+2;
 	        f=p-1;
 	        if(p-1>=0&&j+2>=0){
+	            if(p-1<=8&&j+2<=8){
 	        printf("%d %d",j+2,p-1);
 	        line
+	        }
 	        }
 	        s[1][0]=y;
 	        s[1][1]=p;
@@ -40,8 +45,10 @@ int main(void) {
 	        y=j-2;
 	        f=p+1;
 	        if(p+1>=0&&j-2>=0){
+	            if(p+1<=8&&j-2<=8){
 	        printf("%d %d",j-2,p+1);
 	        line
+	        }
 	        }
 	        s[2][0]=y;
 	        s[2][1]=p;
@@ -51,8 +58,10 @@ int main(void) {
 	         y=j-2;
 	        f=p-1;
 	        if(p-1>=0&&j-2>=0){
+	            if(p-1<=8&&j-2<=8){
 	        printf("%d %d",j-2,p-1);
 	        line
+	        }
 	        }
 	        s[3][0]=y;
 	        s[3][1]=p;
