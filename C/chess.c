@@ -74,6 +74,10 @@ int main(void) {
            if(u[q]!=1) goto r;
         j=s[q][0];
         p=s[q][1];
+        u[1]=0;
+        u[2]=0;
+        u[3]=0;
+        u[0]=0;
 	    o=o+1;
 	}
 	return 0;
