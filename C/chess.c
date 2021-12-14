@@ -11,7 +11,7 @@ int main(void) {
 	scanf("%d%d",&p,&j);
 	int o=0;
 	while(1){
-	    if(o==1){
+	    if(o==2){
 	        break;
 	    } 
 	    if(a[j+2][p+1]==0){
