@@ -4,11 +4,9 @@ int main(void) {
 	char a[20];
 	scanf("%[^\n]s",a);
    char *g=&a[2];
-  int i=3;
    while(*g!='\0'){
        printf("%c",*g);
-       g=&a[i];
-       i++;
+       g=g+1;
    }
    
   int l,b;
