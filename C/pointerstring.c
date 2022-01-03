@@ -3,7 +3,7 @@
 int main(void) {
 	char a[20];
 	scanf("%[^\n]s",a);
-   char *g=&a[2];
+   char *g=&a[1];
    while(*g!='\0'){
        printf("%c",*g);
        g=g+1;
