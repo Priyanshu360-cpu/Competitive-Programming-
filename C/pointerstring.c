@@ -17,10 +17,15 @@ int main(void) {
    int *h=&l;
    int *j=&b;
    int c;
-   c=h;
-   h=j;
-   j=c;
+   c=*h;
+   *h=*j;
+   *j=c;
    printf("\n");
-   printf("%d %d",b,l);
+   printf("%d %d",l,b);
+   int f,x;
+   int *u=&f,*k=&x;
+   scanf("%d%d",u,k);
+   printf("\n");
+   printf("%d %d",f,x);
 	return 0;
 }
