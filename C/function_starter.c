@@ -73,17 +73,28 @@ int main(void) {
     char s[30];
     scanf("%[^\n]s",s);
     int k=0;
-    int *p=s;
+    char *p=s;
     while(s[k]!='\0'){
         k++;
     }
     printf("%d\n",k);
+  int q=k;
     while(k){
         for(int i=0;p[i]!='\0';i++){
             printf("%c",*(p+i));
         }
+        p=p+1;
         printf("\n");
         k--;
+    }
+    p=&s[q];
+    while(q){
+        for(int i=0;&p[i]!=&s[0];i--){
+            printf("%c",*(p+i));
+        }
+        p=p-1;
+        printf("\n");
+        q--;
     }
     printf("%d\n",calc(2,3,'+'));
 	printf("%f",fact(5));
@@ -96,3 +107,4 @@ int main(void) {
 	printf("%d",avg(2,3,4));
 	return 0;
 }
+
