@@ -79,6 +79,7 @@ int main(void) {
     }
     printf("%d\n",k);
   int q=k;
+  int v=q;
     while(k){
         for(int i=0;p[i]!='\0';i++){
             printf("%c",*(p+i));
@@ -88,11 +89,16 @@ int main(void) {
         k--;
     }
     p=&s[q];
-    while(q){
-        for(int i=0;&p[i]!=&s[0];i--){
+    while(q+1){
+        for(int i=0;&p[i]!=&s[-1];i--){
             printf("%c",*(p+i));
         }
+        if(q==v){
+            p=p-2;
+        }
+        else{
         p=p-1;
+        }
         printf("\n");
         q--;
     }
@@ -102,9 +108,8 @@ int main(void) {
 	ptrn(3,'=');
 	drive(2,3,'<');
 	printf("\n");
-	printf("%d",fibo(32));
+	printf("%d",fibo(3));
 	printf("\n");
 	printf("%d",avg(2,3,4));
 	return 0;
 }
-
