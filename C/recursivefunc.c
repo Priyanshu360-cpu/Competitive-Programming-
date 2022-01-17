@@ -86,7 +86,13 @@ z=z*10;
 	printf("%d\n",s);
 	rever(p);
 	printf("\n");
-	series(p,4);
+	int r=0;
+	int *q=p;
+    int i=0;
+    while(*(q+i)!='\0'){
+ i=i+1;
+ r=r+1;
+    }
+	series(p,r+1);
 	return 0;
 }
-
