@@ -68,10 +68,12 @@ g=g/10;
 c=c+1;
     }
     int z=1;
+    c=c-1;
     for(int i=0;i<c;i++){
 z=z*10;
     }
-    forward(n,c+1,z/10);
+    c=c+2;
+    forward(n,c,z);
     printf("\n");
 	disp(n);
 	int h=gcd(24,33);
