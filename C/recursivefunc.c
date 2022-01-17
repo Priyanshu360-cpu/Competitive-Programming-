@@ -12,11 +12,13 @@ int gcd(int a,int b){
     b=g;
     return gcd(a,b);
 } 
+int l=0;
 int nat(int n){
-    if(n==1)
-    return 1;
-    printf("%d ",n);
-    return nat(n-1);
+    if(n==l)
+    return n;
+    l=l+1;
+    printf("%d ",l);
+    return nat(n);
 }
 
 void dob(int n){
