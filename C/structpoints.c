@@ -29,7 +29,6 @@ if(a->y>(a+1)->y) return 1;
   if(a->d>(a+1)->d) return 1;
   if(a->d<(a+1)->d) return 2;
   else return 3;
-  
 }
 void employer(struct employee *p){
     printf("Empid\tName\tGross Salary\n");
@@ -73,3 +72,4 @@ int main(void) {
  }
 	return 0;
 }
+
