@@ -1,0 +1,8 @@
+# Question 
+
+![image](https://user-images.githubusercontent.com/79325092/150353316-5e938005-c2cc-4331-b812-803098ce4af1.png)
+
+# Solution - MySql
+```
+SELECT DISTINCT CITY FROM STATION WHERE NOT (CITY LIKE '%A' OR CITY LIKE '%E' OR CITY LIKE '%I' OR CITY LIKE '%O' OR CITY LIKE '%U') OR NOT (CITY LIKE 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'I%' OR CITY LIKE 'O%' OR CITY LIKE 'U%');
+```
