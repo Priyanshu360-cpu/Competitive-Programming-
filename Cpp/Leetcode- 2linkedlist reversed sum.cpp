@@ -38,23 +38,18 @@ public:
          s2=s2+((l2->val)*c2);
         
     t=s+s2;
-        int w=1;
         int r=0;
-        int sum=0;
-        int re=t;
-        
         while(t){
            r=r+1;
             t=t/10;
         }
-        t=re;
         if(t!=0){
        for(int i=0;i<r;i++){
 digits.push_back(re%10);
        re=re/10;}
 
         
-t=sum;
+
        int g=digits.size()-1;
        last->val=digits[g];
        g=g-1;
