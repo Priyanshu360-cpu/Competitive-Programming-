@@ -11,15 +11,15 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-         ListNode* last;
-       
-     
-      int c=1;
-        int s=0;
-        int c2=1;
-        int s2=0;
+         ListNode* last = new ListNode(0);
+     last->next=NULL;
+    
+      unsigned int c=1;
+        long long int s=0;
+        unsigned int c2=1;
+        unsigned int s2=0;
         int t;
-       
+       vector<int> digits;
         
            while(l1->next){
                s=s+((l1->val)*c);
@@ -29,21 +29,43 @@ public:
         s=s+((l1->val)*c);
                    while(l2->next){
                s2=s2+((l2->val)*c2);
+                      
                c2=c2*10;
+                        
                l2=l2->next;
            }
+        
          s2=s2+((l2->val)*c2);
+        
     t=s+s2;
-        printf("%d\n",t);
-
+        int w=1;
+        int r=0;
+        int sum=0;
+        int re=t;
+        
         while(t){
-          ListNode* l3;
-            l3 = (struct ListNode*)malloc(sizeof(struct ListNode));
-            l3->val=t%10;
+           r=r+1;
+            t=t/10;
+        }
+        t=re;
+        if(t!=0){
+       for(int i=0;i<r;i++){
+digits.push_back(re%10);
+       re=re/10;}
+
+        
+t=sum;
+       int g=digits.size()-1;
+       last->val=digits[g];
+       g=g-1;
+        while(g>=0){
+            ListNode* l3 = new ListNode();
+            l3->val=digits[g];
+            printf("%d\n",l3->val);
             l3->next=last;
             last=l3;
-           
-            t=t/10;
+           g=g-1;
+        }
         }
          
         return last;
