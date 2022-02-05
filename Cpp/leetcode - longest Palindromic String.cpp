@@ -1,41 +1,35 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-vector<vector<string>> a;
+        vector<string>a;
+         vector<string>b;
         for(int i=0;i<s.size();i++){
-            vector<string>b;
             string str;
             str=str+s[i];
-            b.push_back(str);
-            string st="";
-            for(int j=i+1;j<s.size();j++){ 
-                st=st+s[j];
-                b.push_back(st);
-                a.push_back(b);
+            a.push_back(str);
+            for(int j=i+1;j<s.size();j++){
+                str=str+s[j];
+                a.push_back(str);
             }
         }
-        vector<vector<string>> tester;
-        for(int i=0;i<a.size();i++) tester[i].push_back(a[i][a[i].size()-1]);
-        
-        
-        vector<vector<string>> re;
-        for (int i=0;i<tester.size();i++){
-             vector<string>c;
-            for(int j=tester[i].size()-1;j>=0;j--){
-                 c.push_back(tester[i][j]);
+        for(int i=0;i<a.size();i++){
+            string str;
+            
+            for(int j=a[i].size()-1;j>=0;j--){
+                str=str+a[i][j];
             }
-            re.push_back(c);
-        }
-        cout<<a[0][1];
-        vector<string> max;
-         for (int i=0;i<a.size();i++){
-           for(int j=0;j<a[i].size();j++){
-                 cout<<re[i][j]<<" "<<a[i][j]<<"\n";
-               
+             b.push_back(str);
+        } 
+        vector<string> c;
+         for(int i=0;i<a.size();i++){if(a[i]==b[i])c.push_back(a[i]);}
+        int max=0;
+        int in=0;
+        for(int i=0;i<c.size();i++){
+            if(c[i].size()>max){
+                max=c[i].size();
+                in=i;
             }
         }
-      
-       ;
-        return a[3][3];
-        }
-        }
+        return c[in];
+    }
+};
