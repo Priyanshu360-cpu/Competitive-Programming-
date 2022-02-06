@@ -2,13 +2,9 @@ class Solution {
 public:
     int myAtoi(string s) {
         long long int r=0;
-        int g=0;
-        int d=0;
-        int m=0;
-        int o=0;
+        int g=0,d=0,m=0,o=0;
         for(int i=0;i<s.size();i++){
             int a=s[i];
-            
             int b=s[i+1];
            if(a==32){
                d=d==1?0:0;
@@ -26,7 +22,6 @@ public:
             if(a==45&&!(b>=48&&b<=57)) return 0;
             if(a==43&&!(b>=48&&b<=57)) return 0;
             if(d==1&&!(a>=48&&a<=57)) return 0;
-            
             if(a>=48&&a<=57){
                 m=1;
                 d=1;
