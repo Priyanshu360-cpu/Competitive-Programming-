@@ -6,8 +6,8 @@ public:
         for(int i=0;i<haystack.size();i++){
             string test="";
             int p=0;
-            if(haystack[i]==needle[0]){
-                for(int j=i;j<i+needle.size();j++){
+            if(haystack[i]==needle[0]&&i+needle.size()<=haystack.size()&&((haystack[i+needle.size()-1]==needle[needle.size()-1]))){
+                for(int j=i;j<i+needle.size()&&(i+needle.size()<=haystack.size());j++){
                     if(haystack[j]==needle[p]){
                         p=p+1;
                         test=test+haystack[j];
