@@ -1,12 +1,19 @@
 section	.text
    global _start     
 	
-_start:	     
+_start:	  
+   mov	edx,len   
+   mov ecx,msg
+   mov	ebx,1       
+   mov	eax,4       
+   int	0x80 
+   
    mov	edx,1   
    mov ecx,letter
    mov	ebx,1       
    mov	eax,4       
    int	0x80 
+   
    
    mov	edx,1   
    mov ecx,number
@@ -24,6 +31,8 @@ _start:
    int	0x80        
 
 section	.data
+msg db 'Output',0xa
+len equ $ - msg
 letter DB 'y'
 number DW 12345
 stars times 9 db '*'
