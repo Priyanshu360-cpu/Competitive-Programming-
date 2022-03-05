@@ -14,6 +14,11 @@ _start:
    mov	eax,4       
    int	0x80 
    
+   mov	edx,nlen   
+   mov ecx,newline
+   mov	ebx,1       
+   mov	eax,4       
+   int	0x80 
    
    mov	edx,1   
    mov ecx,number
@@ -33,6 +38,8 @@ _start:
 section	.data
 msg db 'Output',0xa
 len equ $ - msg
+newline db '',0xa
+nlen equ $ - newline
 letter DB 'y'
-number DW 12345
-stars times 9 db '*'
+number		DW	12345
+stars   times 9 db '*'
