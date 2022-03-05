@@ -41,5 +41,5 @@ len equ $ - msg
 newline db '',0xa
 nlen equ $ - newline
 letter DB 'y'
-number		DW	12345
-stars   times 9 db '*'
+number DW 12345
+stars times 9 db '*'
