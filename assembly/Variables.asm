@@ -2,9 +2,10 @@ section	.text
    global _start     
 	
 _start:	            
-   mov	edx,1     
+   mov	edx,9    
    mov	ecx,letter  
    mov	ecx,number
+   mov ecx,stars
    mov	ebx,1       
    mov	eax,4       
    int	0x80        
@@ -14,4 +15,5 @@ _start:
 
 section	.data
 letter DB 'y'
-number		DW	12345
+number DW 12345
+stars times 9 db '*'
