@@ -25,5 +25,5 @@ _start:
 
 section	.data
 letter DB 'y'
-number		DW	12345
-stars   times 9 db '*'
+number DW 12345
+stars times 9 db '*'
