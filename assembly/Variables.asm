@@ -3,7 +3,8 @@ section	.text
 	
 _start:	            
    mov	edx,1     
-   mov	ecx,choice     
+   mov	ecx,letter  
+   mov	ecx,number
    mov	ebx,1       
    mov	eax,4       
    int	0x80        
@@ -12,4 +13,5 @@ _start:
    int	0x80        
 
 section	.data
-choice DB 'y'
+letter DB 'y'
+number		DW	12345
