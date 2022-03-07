@@ -16,8 +16,7 @@ public:
            }
             if(c!=2){break;}
         }
-        
-        if(c!=2)return false;
+        if(c!=3)return false;
         else return true;
     }
 };
