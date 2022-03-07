@@ -10,8 +10,9 @@ public:
               d=board[i][j];
               if(d=='.') continue;
                for(int k=0;k<board.size();k++){
-                   if(d==board[i][k]||d==board[k][i]){if(k!=j){cout<<d<<" "<<i<<k<<"\n";c=c+1;}}
+                   if(d==board[j][k]||d==board[k][j])c=c+1;
                }
+             
            }
             if(c!=2){break;}
         }
