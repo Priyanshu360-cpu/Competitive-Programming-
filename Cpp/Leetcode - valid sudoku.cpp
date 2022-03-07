@@ -5,21 +5,18 @@ public:
         char d;
         char*e;
         for(int i=0;i<board.size();i++){
+            c=0;
            for(int j=0;j<board.size();j++){
               d=board[i][j];
-               e=&(board[i][j]);
-              for(int k=0;k<board.size();k++){
-                  if(d==board[i][k]&&(e!=(&(board[i][k])))||(d==board[i][k]&&(e!=(&(board[i][k]))))){
-                       if(d=='.') continue;
-                      c=1;
-                      break;
-                  }
-              }
+              if(d=='.') continue;
+               for(int k=0;k<board.size();k++){
+                   if(d==board[i][k]||d==board[k][i]){if(k!=j){cout<<d<<" "<<i<<k<<"\n";c=c+1;}}
+               }
            }
-          
+            if(c!=2){break;}
         }
         
-        if(c==1)return false;
+        if(c!=2)return false;
         else return true;
     }
 };
