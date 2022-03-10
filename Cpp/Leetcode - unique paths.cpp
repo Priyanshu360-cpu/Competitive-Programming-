@@ -9,7 +9,11 @@ public:
             cout<<a<<"\n";
         }
         }else{
-            for(int i=0;i<n-1;i++)
+            for(int i=0;i<n-1;i++){
+             a=i+a+(m-1)+(m-2);
+            if(i==0)a=a+1;
+            cout<<a<<"\n";
+            }
             
         }
         return a;
