@@ -56,6 +56,7 @@ int main()
             printf("|\n");
             sleep(1);
             printf("|\n");
+            sleep(1);
             printf("\033[0m");
             
             break;
@@ -111,7 +112,7 @@ int main()
          case 'I':
            printf("\033[0;31m");
            sleep(1);
-           printf("     |     \n");
+           printf("-----------\n");
            sleep(1);
            printf("     |     \n");
            sleep(1);
@@ -120,12 +121,21 @@ int main()
            printf("     |     \n");
            sleep(1);
            printf("     |     \n");
+           sleep(1);
+           printf("     |     \n");
+           sleep(1);
+           printf("-----------\n");
+           sleep(1);
            printf("\033[0m");
            
            break;
+        case ' ':
+         printf("\e[1;1H\e[2J");
+         break;
         default:
          sleep(1);
          printf("keyword not found");
+         sleep(1);
          printf("\e[1;1H\e[2J");
          break;
        }
