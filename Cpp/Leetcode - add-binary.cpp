@@ -19,7 +19,7 @@ public:
                     s=s+'1';
                     carry=0;
                 }
-            }else if(a[i]==' '){
+            }else if(!a[i]){
                if(carry==1){
                    if(b[i]=='1'){
                        s=s+'0';
@@ -30,7 +30,7 @@ public:
                }else{
                    s=s+b[i];
                }
-            }else if(b[i]==' '){
+            }else if(!b[i]){
                if(carry==1){
                    if(a[i]=='1'){
                        s=s+'0';
