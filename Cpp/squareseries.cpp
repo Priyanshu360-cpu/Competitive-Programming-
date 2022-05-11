@@ -54,7 +54,18 @@ while(p!=x+2){
 	 p=p-2;
 	 i=i+1;
 }
-p=p+4;
+p = p + 2;
+        i=i-1;
+        for(int j=1;j<i;j++) cout<<j<<"\t";
+         for (int j = p ; j > 0; j--)
+            {
+                cout << i << "\t";
+            }
+            for(int j=i-1;j>0;j--) cout<<j<<"\t";
+            cout<<endl;
+            i=i+1;
+            p=p+2;
+
 while(p!=x+2){
     for(int j=1;j<i-2;j++){
         cout<<j<<"\t";
