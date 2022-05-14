@@ -22,7 +22,7 @@ public:
                  d.pop_back();
              }
 }
-        if(d.size()==0) return true;
+        if(d.size()==1) return true;
         else return false;
     }
 };
