@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValid(string s) {
-        int b=0,c=0,d=0;
+        int b=0,c=0;
         char d='a';
         for(int i=0;i<s.size();i++){
             if(s[i]=='{'||s[i]=='('||s[i]=='['){
@@ -12,7 +12,14 @@ public:
                if((d=='{')&&(s[i]!='}')){
                    return false;
                }
+               if((d=='[')&&(s[i]!=']')){
+                   return false;
+               }
+                 if((d=='(')&&(s[i]!=')')){
+                   return false;
+               }
              }
 }
+        return true;
     }
 };
