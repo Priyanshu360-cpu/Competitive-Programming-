@@ -5,14 +5,14 @@ public:
         string r="";
         
         for(int i=0;i<s.size();i++){
-                    numRows=numRows-1;
-
+                   
+            if(numRows>0){
+                 numRows=numRows-(i+1);
             r=r+s[i];
             int j=i;
-            if(numRows>0){
             while((j+numRows)<(s.size())){
                 j=j+numRows;
-                
+                cout<<s[j];
                 r=r+s[j];
             }}
         }
