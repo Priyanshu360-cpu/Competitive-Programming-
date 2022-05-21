@@ -1,5 +1,5 @@
 Calculator(){
-ping -c 1 priyanshu.gq
+ping -c 1 $1
 echo "Bash Calculator"
 echo "Enter First Data"
 read data1
@@ -34,7 +34,7 @@ printf "WANNA TRY AGAIN? 1/0 \n"
 read data4
 if [ $data4 -eq 1 ]
 then
-Calculator
+Calculator priyanshu.gq
 fi
 }
-Calculator
+Calculator priyanshu.gq
