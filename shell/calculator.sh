@@ -11,21 +11,24 @@ if [ $data3 -eq 1 ]
 then
  val=`expr $data1 + $data2`
  echo "$val"
-fi
+else
 if [ $data3 -eq 2 ]
 then
  val=`expr $data1 - $data2`
  echo "$val"
-fi
+else
 if [ $data3 -eq 3 ]
 then
  val=`expr $data1 \* $data2`
  echo "$val"
-fi
+else
 if [ $data3 -eq 4 ]
 then
  val=`expr $data1 / $data2`
  echo "$val"
+fi
+fi
+fi
 fi
 printf "WANNA TRY AGAIN? 1/0 \n"
 read data4
