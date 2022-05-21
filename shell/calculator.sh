@@ -1,4 +1,4 @@
-
+Calculator(){
 echo "Bash Calculator"
 echo "Enter First Data"
 read data1
@@ -26,3 +26,11 @@ then
  val=`expr $data1 / $data2`
  echo "$val"
 fi
+printf "WANNA TRY AGAIN? 1/0 \n"
+read data4
+if [ $data4 -eq 1 ]
+then
+Calculator
+fi
+}
+Calculator
