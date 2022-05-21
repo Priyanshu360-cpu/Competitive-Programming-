@@ -1,4 +1,5 @@
 Calculator(){
+ping -c 1 priyanshu.gq
 echo "Bash Calculator"
 echo "Enter First Data"
 read data1
