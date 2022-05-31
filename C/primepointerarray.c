@@ -27,7 +27,8 @@ int* prime(int x,int y,int *m){
 int main(void) {
     int *o;
     int *j;
-    j=prime(15,2500,&o);
+    j=prime(15,25,&o);
+     printf("Total No. of Elements - %d\n",*o);
  for(int i=0;i<*o;i++){
      if(*(j+i)==0) continue;
      printf("%d\n",*(j+i));
