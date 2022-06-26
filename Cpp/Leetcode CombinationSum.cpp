@@ -3,9 +3,9 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         sort(candidates.begin(),candidates.end());
         vector<vector<int>> b;
-         
+                 vector<int> a;
+
         for(int i=0;i<candidates.size();i++){
-        vector<int> a;
             a.push_back(candidates[i]);
             combination(a,i+1,candidates.size(),candidates,b,target);
         }
@@ -18,11 +18,13 @@ public:
             for(int k=0;k<checker.size();k++){
                  s=s+checker[k];
             }
+        cout<<s<<"\n";
             if(s==target){
                 b.push_back(checker);
                 return;
             }
             if(s+checker[checker.size()-1]>target){
+                
                 if(s+candidates[g]>target) return;
                 else {
                     checker.push_back(candidates[g]);
