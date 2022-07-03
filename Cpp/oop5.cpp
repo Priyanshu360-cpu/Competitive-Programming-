@@ -17,7 +17,7 @@ using namespace std;
         cout<<"I am abc\n"<<this->c<<"\n";
     };
     void abc::output(){
-        cout<<"here"<<endl;
+        cout<<"Extra here "<<a<<" "<<b<<" "<<c<<endl;
     }
 int main() {
 class cde:public abc{
@@ -32,5 +32,6 @@ class cde:public abc{
  cde n;
  n.display(4,5);
  n.display();
+ n.output();
 	return 0;
 }
