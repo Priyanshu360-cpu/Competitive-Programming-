@@ -12,6 +12,7 @@ public:
             }else{
                 if(ratings[i]>ratings[i+1])check[i]=check[i]+check[i+1];
                     if(ratings[i]>ratings[i-1])check[i]=check[i]+check[i-1];
+                    if(ratings[i]==ratings[i-1]&&ratings[i]==ratings[i+1]) check[i]=check[i-1];
             }   
         }
       if(ratings[0]>ratings[1])
