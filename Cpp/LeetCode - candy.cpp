@@ -6,6 +6,7 @@ public:
         for(int i=0;i<ratings.size();i++){
             check.push_back(1);
         }
+        
         for(int i=0;i<check.size()-1;i++){
             if(i==0){
                 continue;
