@@ -1,38 +1,48 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 #include <vector>
 class Solution {
 public:
     vector<int> count;
-    void leftNode(TreeNode *root,int *c){
-       
+    void leftNode(TreeNode *root,int c){
+                     count.push_back(c);   
+
         if(root->left){
-            count.push_back(root->left->val);
-            *c=*c+1;
-            leftNode(root->left,c);
-            *c=*c-1;
+            leftNode(root->left,c+1);
         }
-        
         if(root->right){
-            *c=*c+1;
-            rightNode(root->right,c);
-            *c=*c-1;
+            rightNode(root->right,c+1);
+                         count.push_back(c);
         }
     }
-    void rightNode(TreeNode *root,int *c){
+    void rightNode(TreeNode *root,int c){
+                     count.push_back(c);   
+
         if(root->right){
-            *c=*c+1;
-            rightNode(root->right,c);
-            *c=*c-1;
+                         count.push_back(c);
+            rightNode(root->right,c+1);
+            
         }
          if(root->left){
-            *c=*c+1;
-            leftNode(root->left,c);
+            count.push_back(c);
+            leftNode(root->left,c+1);
         }
         
     }
     int maxDepth(TreeNode* root) {
-        int c=0;
-        leftNode(root,&c);
-        rightNode(root,&c);
-        return c;
+        int c=1;
+        leftNode(root,c);
+        rightNode(root,c);
+        sort(count.begin(),count.end());
+        return count[count.size()-1];
     }
 };
