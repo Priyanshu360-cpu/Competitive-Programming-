@@ -40,6 +40,7 @@ public:
     }
     int maxDepth(TreeNode* root) {
         int c=1;
+        if (root==NULL) return 0;
         leftNode(root,c);
         rightNode(root,c);
         sort(count.begin(),count.end());
