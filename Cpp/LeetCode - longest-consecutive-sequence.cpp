@@ -3,7 +3,6 @@ public:
     int longestConsecutive(vector<int>& nums) {
         if(!nums.size()) return 0;
         vector<int> diff;
-        vector<int> unique;
         diff.push_back(1);
         int c=1;
         sort(nums.begin(),nums.end());
