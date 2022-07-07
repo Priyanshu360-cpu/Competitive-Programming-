@@ -4,6 +4,15 @@ public:
         string s4=s1+s2;
         if(s4==s3) return true;
         if(s1==s2&&s2==s3) return true;
+        if(s3.size()<(s1.size()+s2.size())) return false;
+         if(s3.size()>(s1.size()+s2.size())) return false;
+        if(s1==""&&s2==""&&s3!=s2) return false;
+        if(s1.size()==0&&s2.size()!=0){
+            if(s2!=s3) return false;
+        }
+        if(s2.size()==0&&s1.size()!=0){
+             if(s1!=s3) return false;
+        }
         int s1i=0;
         int s2i=0;
         for(int i=0;i<s3.size()-1;i++){
