@@ -20,14 +20,16 @@ public:
 
 class Solution {
 public:
-    void check(queue<int> &s,Node* node, vector<bool> &visited){
+    void check(queue<int> &s,Node* node, vector<int> &visited){
 int h=s.front();
         s.pop();
-        if(visited[h]==true) cout<<"step"<<endl;
+        fot(int i=0;i<visited.size();i++)
+        if(visited[i]==h) cout<<"step"<<endl;
     }
     Node* cloneGraph(Node* node) {
         Node* l=new Node(node->val);
-       vector<bool> visited;
+       vector<int> visited;
+       visited.push_back(node->val);
        queue<int> p;
        p.push(node->val);
        for(int i=0;i<node->neighbors.size();i++) cout<<node->neighbors[i]->neighbors[1]->
