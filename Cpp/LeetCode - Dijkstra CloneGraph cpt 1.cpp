@@ -22,6 +22,14 @@ public:
 class Solution {
 public:
     void check(queue<int> &s,Node* node, vector<int> &visited){
+        for(int i=0;i<node->neighbors.size();i++){
+            int h=0;
+            for(int j=0;j<visited.size();j++)
+                if(visited[j]==node->neighbors[i]->val)h=1;
+          if(h==0){
+              s.push(node->neighbors[i]->val);
+          }
+        }
 int h=s.front();
         s.pop();
         for(int i=0;i<visited.size();i++)
@@ -33,9 +41,9 @@ int h=s.front();
        visited.push_back(node->val);
        queue<int> p;
        p.push(node->val);
-       for(int i=0;i<node->neighbors.size();i++) cout<<node->neighbors[i]->neighbors[1]->
+        for(int i=0;i<node->neighbors.size();i++) cout<<node->neighbors[i]->neighbors[1]->
            neighbors[1]->val<<endl;
-       for(int i=0;i<<node->neighbors[1]->neighbors.size();i++) cout<<node->neighbors[1]->neighbors[i]->val<<endl;
+               for(int i=0;i<<node->neighbors[1]->neighbors.size();i++) cout<<node->neighbors[1]->neighbors[i]->val<<endl;
         check(p,node,visited);
         return l;
     }
