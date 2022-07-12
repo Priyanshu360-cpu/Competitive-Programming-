@@ -25,7 +25,8 @@ public:
                             l=0;
                         } else
                          l=matchsticks[j];
-                         matchsticks[i]=matchsticks[i]+matchsticks[j];
+                         matchsticks[i]=matchsticks[i]+l;
+                        if(l==0)l=matchsticks[i];
                         while(j<matchsticks.size()&&matchsticks[i]<a){
                             if(matchsticks[j]!=l)
                             {matchsticks[i]=matchsticks[i]+matchsticks[j];
@@ -39,6 +40,7 @@ public:
                         if(matchsticks[i]!=a) return false;
                         else {
                             j=m;
+                            cout<<"j"<<j<<endl;
                             matchsticks[i]=0;
                         }
                     }
