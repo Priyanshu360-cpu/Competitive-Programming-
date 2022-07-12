@@ -4,7 +4,7 @@ public:
         sort(matchsticks.begin(),matchsticks.end());
         if((accumulate(matchsticks.begin(),matchsticks.end(),0))%4!=0)return false;
         int a=accumulate(matchsticks.begin(),matchsticks.end(),0)/4;
-        cout<<a;
+        
         for(int i=0;i<matchsticks.size()-1;i++)
         {
             if(matchsticks[i]==0) continue;
@@ -25,21 +25,22 @@ public:
                             l=0;
                         } else
                          l=matchsticks[j];
-                         matchsticks[i]=matchsticks[i]+l;
+                        matchsticks[i]=matchsticks[i]+l;
                         if(l==0)l=matchsticks[i];
-                        while(j<matchsticks.size()&&matchsticks[i]<a){
+                      
+                        while(j<matchsticks.size()&&matchsticks[i]<a&&matchsticks[i]!=a){
                             if(matchsticks[j]!=l)
                             {matchsticks[i]=matchsticks[i]+matchsticks[j];
-                              cout<<matchsticks[i];
                              l=matchsticks[j];
                              matchsticks[j]=0;
+                             cout<<j;
                             }
                             j=j+1;
                         }
-                        if(matchsticks[i]==a) cout<<matchsticks[i];
-                        if(matchsticks[i]!=a) return false;
+                        
+                        if(matchsticks[i]!=a){ cout<<matchsticks[i];return false;}
                         else {
-                            j=m;
+                            j=0;
                             cout<<"j"<<j<<endl;
                             matchsticks[i]=0;
                         }
