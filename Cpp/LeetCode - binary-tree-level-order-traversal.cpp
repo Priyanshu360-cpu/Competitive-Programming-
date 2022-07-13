@@ -10,109 +10,45 @@
  
 class Solution {
 public:
-    void left(vector<vector<int>>& a,TreeNode* root,int p){
-        vector<int> b;
-        if(root->left&&root->right){
-            b.push_back(root->left->val);
-            b.push_back(root->right->val);
-            a.push_back(b);
-            left(a,root->left,p+1);
-            right(a,root->right,p);
-        }else if(root->left){
-            b.push_back(root->left->val);
-            b.push_back(0);
-             b.push_back(p);
-            a.push_back(b);
-             left(a,root->left,p+1);
-                        p=p+1;
+    void left(TreeNode* root,vector<vector<int>>& a,int p){
+        if(a.size()>=p){
+            a[p-1].push_back(root->val);
 
-        } else if(root->right){
-             b.push_back(root->right->val);
-             b.push_back(0);
-             b.push_back(p);
-             a.push_back(b);
-             right(a,root->right,p);
+        }else{
+            vector<int> b;
+            b.push_back(root->val);
+            a.push_back(b);
         }
+        if(root->left)left(root->left,a,p+1);
+        if(root->right)right(root->right,a,p+1);
     }
-        void right(vector<vector<int>>& a,TreeNode* root,int p){
-        vector<int> b;
-        if(root->left&&root->right){
-             
-            b.push_back(root->left->val);
-            b.push_back(root->right->val);
-            a.push_back(b);
-            left(a,root->left,p+1);
-             right(a,root->right,p);
-        }else if(root->left){
-            b.push_back(root->left->val);
-            b.push_back(0);
-             b.push_back(p);
-            a.push_back(b);
-            left(a,root->left,p+1);
-                        p=p+1;
+     void right(TreeNode* root,vector<vector<int>>& a,int p){
 
-        } else if(root->right){
-             b.push_back(root->right->val);
-             b.push_back(0);
-             b.push_back(p);
-             a.push_back(b);
-             right(a,root->right,p);
+        if(a.size()>=p){
+            a[p-1].push_back(root->val);
+        }else{
+            vector<int> b;
+            b.push_back(root->val);
+            a.push_back(b);
         }
+        if(root->left)left(root->left,a,p+1);
+        if(root->right)right(root->right,a,p+1);
     }
     vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>> a;
-        int p=1;
+       vector<vector<int>>a;
+        int p=2;
         if(root){
             vector<int> b;
             b.push_back(root->val);
-            b.push_back(0);
-            b.push_back(p);
-            a.push_back(b);
-        } else return a;
-        p=p+1;
-        vector<int> c;
-        if(root->left&&root->right){
-            c.push_back(root->left->val);
-            c.push_back(root->right->val);
-            a.push_back(c);
-            left(a,root->left,p);
-            right(a,root->right,p);
+            a.push_back(b);}
+        else return a;
+        if(root->left){
+            left(root->left,a,p);
         }
-        else if(root->left){
-             
-            c.push_back(root->left->val);
-      
-            a.push_back(c);
-            left(a,root->left,p);
+        if(root->right){
+            right(root->right,a,p);
         }
-        else if(root->right){
-             c.push_back(root->right->val);
- 
-            a.push_back(c);
-            right(a,root->right,p);
-        }
-        for(int i=0;i<a.size()-1;i++){
-            if(a[i].size()==3&&a[i+1].size()==3){
-            if(a[i][2]==a[i+1][2]){
-                a[i].pop_back();
-                a[i].pop_back();
-                a[i].push_back(a[i+1][0]);
-                a.erase(a.begin()+(i+1));
-            }else{
-                
-                a[i].pop_back();
-                a[i].pop_back();
-            }
-            
-        }else if(a[i].size()==3){
-                a[i].pop_back();
-                 a[i].pop_back();
-            }
-        }
-        if(a[a.size()-1].size()==3){
-            a[a.size()-1].pop_back();
-            a[a.size()-1].pop_back();
-        }
+        
         return a;
     }
 };
