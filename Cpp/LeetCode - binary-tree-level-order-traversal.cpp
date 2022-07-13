@@ -13,18 +13,17 @@ public:
     void left(vector<vector<int>>& a,TreeNode* root,int p){
         vector<int> b;
         if(root->left&&root->right){
-            
             b.push_back(root->left->val);
             b.push_back(root->right->val);
             a.push_back(b);
-            left(a,root->left,p);
+            left(a,root->left,p+1);
             right(a,root->right,p);
         }else if(root->left){
             b.push_back(root->left->val);
             b.push_back(0);
              b.push_back(p);
             a.push_back(b);
-             left(a,root->left,p);
+             left(a,root->left,p+1);
                         p=p+1;
 
         } else if(root->right){
@@ -42,14 +41,14 @@ public:
             b.push_back(root->left->val);
             b.push_back(root->right->val);
             a.push_back(b);
-            left(a,root->left,p);
+            left(a,root->left,p+1);
              right(a,root->right,p);
         }else if(root->left){
             b.push_back(root->left->val);
             b.push_back(0);
              b.push_back(p);
             a.push_back(b);
-            left(a,root->left,p);
+            left(a,root->left,p+1);
                         p=p+1;
 
         } else if(root->right){
