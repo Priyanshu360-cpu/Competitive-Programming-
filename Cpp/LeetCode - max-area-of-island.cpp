@@ -1,9 +1,7 @@
 class Solution {
 public:
     void calc(vector<vector<int>>& a,vector<int>& h,int j,int i,int k,int m,int* p){
-             vector<int>::iterator it;
-            it = find (h.begin(), h.end(), (i*10)+j);
-            if(it==h.end()){
+ a[i][j]=0;
   h.push_back((i*10)+j);
         *p=*p+1;
         if(i+1<m)
@@ -15,7 +13,6 @@ public:
                  if(j-1>=0)
             if(a[i][j-1]==1) calc(a,h,j-1,i,k,m,p);
         
-            }
     }
  
     int maxAreaOfIsland(vector<vector<int>>& grid) {
@@ -27,7 +24,7 @@ public:
                 int p=0;
                 if(a[i][j]==1){
                     p=p+1;
-                    h.push_back(((i*10)+j));
+ a[i][j]=0;
                     if(j+1<a[i].size()&&a[i][j+1]==1)
                         calc(a,h,j+1,i,a[i].size(),a.size(),&p);
                     if(i+1<a.size()&&a[i+1][j]==1)
