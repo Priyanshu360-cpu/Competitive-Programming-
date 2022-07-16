@@ -1,5 +1,6 @@
 class Solution {
 public:
+    
     void solve(int m,int n,int sr,int sc,int *p,int g){
             if(sr<0&&sc>=0){
                 if(g==0)*p=*p+1;
@@ -27,13 +28,14 @@ public:
         }
     }
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
-        int p=0;
-        int h=1;
+         int p=0;
+         int h=1;
 
         while(h<=maxMove){
             solve(m,n,startRow,startColumn,&p,h);
             h=h+1;
         }
-        return p;
+        return p%1000000007;
+        
     }
 };
