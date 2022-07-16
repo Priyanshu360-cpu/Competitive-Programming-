@@ -2,6 +2,9 @@ class Solution {
 public:
     
     void solve(int m,int n,int sr,int sc,int *p,int g){
+        if(*p==2147483647){
+            return ;
+        }
             if(sr<0&&sc>=0){
                 if(g==0)*p=*p+1;
                 else return;
