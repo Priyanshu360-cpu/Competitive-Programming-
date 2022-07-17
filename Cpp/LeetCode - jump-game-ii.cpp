@@ -4,20 +4,16 @@ public:
       int p=1;
         if(nums[0]==0) return 0;
         if(nums.size()==1) return 0;
-        for(int i=0;i<nums.size();i++){
-  int m=nums[i];
-            cout<<i<<endl;
-            if(m+i<=nums.size()){
+        int m=nums[0];
+        for(int i=0;i<nums.size();){
+            i=i+m;
+            if(i<nums.size()-1){
                               
 vector<int>a;
                 vector<int> b;
-                a.assign(nums.begin()+i+1,nums.begin()+m+i+1);
-                b=a;
+                a.assign(nums.begin()+i-m+1,nums.begin()+i+1);
                 sort(a.begin(),a.end());
-                vector<int>::iterator it;
-                it=find(b.begin(),b.end(),a[a.size()-1]);
-                
-            i=i+a[a.size()-1]+(it-b.begin());
+               m=a[a.size()-1];
             p=p+1;
             }
         }
