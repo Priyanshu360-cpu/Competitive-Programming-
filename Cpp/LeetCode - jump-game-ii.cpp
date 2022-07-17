@@ -7,14 +7,15 @@ public:
         int m=nums[0];
         for(int i=0;i<nums.size();){
             i=i+m;
-            if(i<nums.size()-1){
-                              
 vector<int>a;
-                vector<int> b;
                 a.assign(nums.begin()+i-m+1,nums.begin()+i+1);
                 sort(a.begin(),a.end());
+               if(p==1)i=i-m+1;
+               
                m=a[a.size()-1];
+              
             p=p+1;
+                
             }
         }
         return p;
