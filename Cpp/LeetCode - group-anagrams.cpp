@@ -5,6 +5,9 @@ public:
         for(int i=0;i<strs.size();i++){
             string gh=strs[i];
             int p=0;
+          if(a.find(strs[i])!=a.end()){
+              a[strs[i]].push_back(gh);
+          }else{
             next_permutation(strs[i].begin(),strs[i].end());
             while(strs[i]!=gh){
                 if(a.find(strs[i])!=a.end()){
@@ -19,7 +22,7 @@ public:
                 b.push_back(gh);
                 a.insert(pair<string,vector<string>>(gh,b));
             }
-        }
+        }}
         vector<vector<string>> c;
         for (auto i : a){
             c.push_back(i.second);
