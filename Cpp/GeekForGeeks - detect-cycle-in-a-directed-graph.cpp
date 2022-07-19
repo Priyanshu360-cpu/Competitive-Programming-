@@ -3,22 +3,28 @@ using namespace std;
 
 class Solution {
   public:
+    
     bool isCyclic(int V, vector<int> adj[]) {
-        vector<int> a; 
-        vector<int>::iterator it; 
+        vector<int>::iterator it;
+        vector<int> a;
         for(int i=0;i<V;i++){
-      for(auto x:adj[i]){
-          if(x==i+1) { 
-              return true;
-          }
-          it=find(a.begin(),a.end(),x);
-          if(it!=a.end()){ 
-              return true;
-          }
-          else a.push_back(x);
-      } }
+             if(i!=0){
+                 if(adj[i-1].size()!=0){
+                     if(adj[i].size()==0) return true;
+                 }
+             }
+            for(auto x:adj[i]){
+                it=find(a.begin(),a.end(),x);
+               
+                if(it!=a.end()||i==x){ 
+                    return true;} 
+                else {
+                    a.push_back(x);
+                }
+            } 
+        } 
         return false;
-    }
+        }
 };
 
 
