@@ -5,29 +5,40 @@ class Solution {
   public:
     
     bool isCyclic(int V, vector<int> adj[]) {
+        vector<int> b;
         vector<int>::iterator it;
-        vector<int> a;
-        for(int i=0;i<V;i++){
-             if(i!=0){
-                 if(adj[i-1].size()!=0){
-                     if(adj[i].size()==0) return true;
-                 }
-             }
-            for(auto x:adj[i]){
-                it=find(a.begin(),a.end(),x);
-               
-                if(it!=a.end()||i==x){ 
-                    return true;} 
-                else {
-                    a.push_back(x);
-                }
-            } 
-        } 
+       queue<int> a;
+       int p;
+       for(int i=0;i<V;i++){
+           if(adj[i].size()!=0){
+               p=i;
+               break;
+           }
+       }
+       a.push(p);
+      
+       while(!a.empty()){
+            b.push_back(a.front());
+           if(adj[a.front()].size()==0){
+               a.pop();
+               continue;
+           }
+           for(auto x:adj[a.front()]){
+               it=find(b.begin(),b.end(),x);
+               if(it!=b.end()){ 
+                 cout<<x<<a.front();
+                   return true;
+               }
+               else{
+                   a.push(x);
+               }
+             
+           }
+            a.pop();
+       }
         return false;
         }
 };
-
-
 int main() {
 
     int t;
