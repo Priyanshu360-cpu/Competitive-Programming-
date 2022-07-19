@@ -5,16 +5,17 @@ public:
         for(int i=0;i<strs.size();i++){
             string gh=strs[i];
             int p=0;
-            while(next_permutation(strs[i].begin(),strs[i].end())){
+            next_permutation(strs[i].begin(),strs[i].end());
+            while(strs[i]!=gh){
                 if(a.find(strs[i])!=a.end()){
                     a[strs[i]].push_back(gh);
                     p=1;
                     break;
                 }
+                next_permutation(strs[i].begin(),strs[i].end());
             }
             if(p==0){
                 vector<string> b;
-                cout<<gh;
                 b.push_back(gh);
                 a.insert(pair<string,vector<string>>(gh,b));
             }
