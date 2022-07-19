@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-class Solution {
-  public:
-    
-    bool isCyclic(int V, vector<int> adj[]) {
+ bool isCyclic(int V, vector<int> adj[]) {
         vector<int> b;
         vector<int>::iterator it;
        queue<int> a;
@@ -25,8 +21,7 @@ class Solution {
            }
            for(auto x:adj[a.front()]){
                it=find(b.begin(),b.end(),x);
-               if(it!=b.end()){ 
-                 cout<<x<<a.front();
+               if(it!=b.end()&&x<=a.front()){ 
                    return true;
                }
                else{
@@ -38,7 +33,6 @@ class Solution {
        }
         return false;
         }
-};
 int main() {
 
     int t;
