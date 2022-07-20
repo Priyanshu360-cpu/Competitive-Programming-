@@ -21,7 +21,8 @@ public:
                 for(auto o:x){
                     it=find(s.begin()+y,s.end(),o);
                     if(it!=s.end()){
-                        h.push_back(it-s.begin()+y);
+                        h.push_back(it-s.begin());
+                        y=it-s.begin()-1;
                     }else{
                         q=1;
                         break;
