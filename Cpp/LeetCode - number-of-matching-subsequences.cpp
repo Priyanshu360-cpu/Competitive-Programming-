@@ -22,7 +22,7 @@ public:
                     it=find(s.begin()+y,s.end(),o);
                     if(it!=s.end()){
                         h.push_back(it-s.begin());
-                        y=it-s.begin()-1;
+                        y=(it-s.begin())>0?it-s.begin()-1:it-s.begin();
                     }else{
                         q=1;
                         break;
