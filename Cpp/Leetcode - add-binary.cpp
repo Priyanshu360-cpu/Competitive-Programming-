@@ -41,7 +41,10 @@ while(a.size()||b.size()){
             a.pop_back();
             goto L;
         }
+
          while(a.size()){
+                             c=0;
+
  s=s+a[a.size()-1];
              a.pop_back();
             }
@@ -61,6 +64,7 @@ while(a.size()||b.size()){
             goto L;
         }
          while(b.size()){
+                c=0;
                 s=s+b[b.size()-1];
                 b.pop_back();
             }
