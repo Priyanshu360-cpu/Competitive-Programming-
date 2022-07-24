@@ -2,50 +2,72 @@ class Solution {
 public:
     string addBinary(string a, string b) {
         string s="";
-        int carry=0;
-        int x=a.size()>b.size()?a.size():b.size();
-        for(int i=x-1;i>=0;i--){
-            if(a[i]=='1'&&b[i]=='1'){
-                if(carry==1){
-                    s=s+'1';
-                }else{
-                    s=s+'0';
-                    carry=1;
-                }
-            }else if(a[i]=='1'&&b[i]=='0'||a[i]=='0'&&b[i]=='1'){
-                if(carry==1){
-                    s=s+'0';
-                }else{
-                    s=s+'1';
-                    carry=0;
-                }
-            }else if(!a[i]){
-               if(carry==1){
-                   if(b[i]=='1'){
-                       s=s+'0';
-                   }else{
-                       s=s+'1';
-                       carry=0;
-                   }
-               }else{
-                   s=s+b[i];
-               }
-            }else if(!b[i]){
-               if(carry==1){
-                   if(a[i]=='1'){
-                       s=s+'0';
-                   }else{
-                       s=s+'1';
-                       carry=0;
-                   }
-               }else{
-                   s=s+a[i];
-               }
+        int c=0;
+while(a.size()||b.size()){
+      L:
+    string r="";
+    if(a.size())
+        r=r+a[a.size()-1];
+        string y="";
+    if(b.size())
+        y=y+b[b.size()-1];
+    if(a.size()&&b.size()){
+       
+        if(stoi(r)+stoi(y)+c==2){
+ s=s+'0';            c=1;
+    }else if(stoi(r)+stoi(y)+c==1){
+ s=s+'1';            c=0;
+        }else if(stoi(r)+stoi(y)+c==3){
+ s=s+'0';            c=1;
+        }else if(stoi(r)+stoi(y)+c==0){
+             s=s+'0';
+            c=0;
+        }
+        a.pop_back();
+        b.pop_back();
+}
+    else if(a.size()&&!b.size()){
+
+        if(stoi(r)+c==1){
+ s=s+'1';          a.pop_back();
+
+        }else if(stoi(r)+c==0){
+              s=s+'0';
+          a.pop_back();
+
+        }else if(stoi(r)+c==2){
+            s=s+'0';
+            c=1;
+            a.pop_back();
+            goto L;
+        }
+         while(a.size()){
+ s=s+a[a.size()-1];
+             a.pop_back();
             }
-        }
-        if(carry==1){
+    }
+    else if(!a.size()&&b.size()){
+        if(stoi(y)+c==1){
             s=s+'1';
+            b.pop_back();
+           
+        }else if(stoi(y)+c==0){
+          s=s+'0';
+          b.pop_back();
+        }else if(stoi(y)+c==2){
+            s=s+'0';
+            c=1;
+            b.pop_back();
+            goto L;
         }
+         while(b.size()){
+                s=s+b[b.size()-1];
+                b.pop_back();
+            }
+    }
+    
+}
+        if(c==1)s=s+'1';
         reverse(s.begin(),s.end());
         return s;
     }
