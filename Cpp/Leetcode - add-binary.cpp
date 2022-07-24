@@ -18,7 +18,7 @@ while(a.size()||b.size()){
     }else if(stoi(r)+stoi(y)+c==1){
  s=s+'1';            c=0;
         }else if(stoi(r)+stoi(y)+c==3){
- s=s+'0';            c=1;
+ s=s+'1';            c=1;
         }else if(stoi(r)+stoi(y)+c==0){
              s=s+'0';
             c=0;
