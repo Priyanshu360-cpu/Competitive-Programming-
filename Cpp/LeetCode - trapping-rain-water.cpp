@@ -4,12 +4,14 @@ public:
         if(height.size()<=2) return 0;
         int w=0;
         for(int i=height.size()-1;i>0;i--){
+            
             int p=i;
             int m=0;
             int j=0;
             int l=0;
-            while(i>0&&height[i-1]<=height[p]){
+            while(i>0&&height[i-1]<height[p]){
                 l=1;
+                cout<<height[p]<<p<<endl;
                 if(m<=height[i-1]){
                     m=height[i-1];
                     j=i-1;
@@ -19,9 +21,9 @@ public:
             if(i>0&&height[i-1]>m&&height[p]>m){
                 m=height[p];
                 j=i-1;
-                
+                if(i-1==0)l=1;
+
             }
-            if(j!=0)i=j;
             if(l==1){
                 for(int q=p-1;q>=j;q--){
                     if(m<height[q])continue;
