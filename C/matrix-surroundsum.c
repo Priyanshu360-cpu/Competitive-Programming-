@@ -35,6 +35,6 @@ int main(){
     }
     int t;
     scanf("%d",&t);
-    printf("%d",surroundsum(a,n,p));
+    printf("%d",surroundsum((int *)a,n,p));
     return 0;
 }
