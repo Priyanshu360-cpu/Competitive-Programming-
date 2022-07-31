@@ -1,35 +1,33 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        vector<string>a;
-         vector<string>b;
+    int N=s.size();
+    bool a[N][N];
+    int palindrome_begins_at = 0;
+    int palindrome_length = 1;
+    memset(a, false, sizeof(bool)*N*N);
         for(int i=0;i<s.size();i++){
-            string str;
-            str=str+s[i];
-            a.push_back(str);
-            for(int j=i+1;j<s.size();j++){
-                str=str+s[j];
-                a.push_back(str);
+            a[i][i]=true;
+        }
+         for(int i=0;i<s.size()-1;i++){
+          if (s.at(i) == s.at(i+1)) {
+            a[i][i+1] = true;
+              palindrome_begins_at=i;
+              palindrome_length=2;
+        }
+}
+        for (int len=3; len <= N; len++) {
+        for (int i=0; i < N-len+1; i++) { 
+            int j = i+len-1;    
+            if (s[i] == s[j] and a[i+1][j-1] == true) {
+                a[i][j] = true;
+                if (len > palindrome_length) {
+                    palindrome_begins_at = i;
+                    palindrome_length = len;
+                }
             }
         }
-        for(int i=0;i<a.size();i++){
-            string str;
-            
-            for(int j=a[i].size()-1;j>=0;j--){
-                str=str+a[i][j];
-            }
-             b.push_back(str);
-        } 
-        vector<string> c;
-         for(int i=0;i<a.size();i++){if(a[i]==b[i])c.push_back(a[i]);}
-        int max=0;
-        int in=0;
-        for(int i=0;i<c.size();i++){
-            if(c[i].size()>max){
-                max=c[i].size();
-                in=i;
-            }
-        }
-        return c[in];
+    }
+        return s.substr(palindrome_begins_at, palindrome_length);
     }
 };
