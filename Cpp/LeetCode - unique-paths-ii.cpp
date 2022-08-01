@@ -11,6 +11,7 @@ public:
         return a[g][h];
     }
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-        return solve(obstacleGrid.size(),obstacleGrid[0].size(),0,0,obstacleGrid,obstacleGrid);
+        vector<vector<int>> a(obstacleGrid.size(),vector<int>(obstacleGrid[0].size(),0));
+        return solve(obstacleGrid.size(),obstacleGrid[0].size(),0,0,a,obstacleGrid);
     }
 };
