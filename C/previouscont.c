@@ -8,7 +8,7 @@ int main(){
     }
     for(int i=2;i<n;i++){
         if(a[i]==a[i-1]){
-            printf("%d ");
+            printf("%d ",a[i]);
         }else if(a[i-1]<a[i]){
             int k=i;
             int s=0;
