@@ -5,11 +5,14 @@
           if(*((a+i*n)+j)==z){
             int s=0;
             if(i-1>=0){
-                 printf("%d\n",z);
+if(j+1<n)s=s+*(a+(i-1)*n+j+1); 
+if(j-1>=0)s=s+*(a+(i-1)*n+j-1);
                 s=s+*(a+(i-1)*n+j);
             }
             if(i+1<n){
-                s=s+*(a+(i+1)*n+j);
+                s=s+*(a+(i+1)*n+j); 
+if(j+1<n)s=s+*(a+(i+1)*n+j+1); 
+if(j-1>=0)s=s+*(a+(i+1)*n+j-1);
             }
             if(j-1>=0){
                 s=s+*(a+i*n+j-1);
