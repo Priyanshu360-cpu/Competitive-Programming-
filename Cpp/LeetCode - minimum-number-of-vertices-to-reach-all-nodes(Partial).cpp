@@ -1,11 +1,25 @@
 class Solution {
 public:
     void solution(){
+        l=0;
         for(int i=0;i<n;i++){
             if(a[i]>max&&b[i]==true){
-                for(auto x:a[i]){
-                    traverse();
-                }
+                max=a[i];
+                l=i;
+            }
+        }
+        traverse()
+        b[i]=false;
+        for(auto x:b){
+            if(x==true)solution()
+        }
+    }
+    void traverse(){
+        for(auto x:c){
+            if(b[x]==true){
+                b[x]=false;
+                if(a.find(x)!=a.end(){
+                traverse(a[x])}
             }
         }
     }
