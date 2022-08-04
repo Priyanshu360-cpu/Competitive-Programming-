@@ -1,17 +1,6 @@
 class Solution {
 public:
-    void adfor(vector<int>& l,vector<int>& c,map<int,vector<int>>& a,vector<bool>& b){
-    for(auto x:c){
-        if(a.find(x)!=a.end()&&b[x]==true){
-            b[x]=false;
-            for(auto y:a[x]){
-                l.push_back(y);
-                b[y]=false;
-            }
-            adfor(l,c,a,b);
-        }
-    }
-}
+
     void solution(int n,map<int,vector<int>>& a,vector<bool>& b,vector<int>& c){
         int l=0;
         int max=0;
@@ -43,12 +32,27 @@ public:
         for(int i=0;i<edges.size();i++){
             a[edges[i][0]].push_back(edges[i][1]);
         }
+        
         for(int i=0;i<n;i++){
-   adfor(a[i],a[i],a,b);
+            if(a.find(i)!=a.end()){
+   L:
+            int z=a[i].size();
+        for(auto c:a[i]){
+            if(a.find(c)!=a.end()&&b[c]!=false){
+                b[c]=false;
+                for(auto y:a[c]){
+                    a[i].push_back(y);
+                }
+            }
+        }
+            if(a[i].size()!=z)goto L;
+            
       }
+        }
         vector<int> c;
         vector<int>::iterator it;
         solution(n,a,b,c);
+       
         return c;
         
     }
