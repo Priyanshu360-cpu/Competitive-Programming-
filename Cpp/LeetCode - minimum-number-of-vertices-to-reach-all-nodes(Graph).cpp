@@ -8,29 +8,19 @@ public:
         }
         for(int i=0;i<n;i++){
             if(a.find(i)!=a.end()){
-                vector<bool> m(n,true);
                 queue<int> p;
                 p.push(i);
                 while(!p.empty()){
-                    if(a.find(p.front())!=a.end()&&m[p.front()]==true){
-                       m[p.front()]=false;
-                        if(p.front()!=i){
-                            b[p.front()]=false;
-                        }
+                    if(a.find(p.front())!=a.end()&&b[p.front()]==true){
+                        if(p.front()!=i)b[p.front()]=false;
                         int q=p.front();
                         p.pop();
                        for(auto x:a[q]){
                            p.push(x);
-                           vector<int>::iterator it;
-                           it=find(a[i].begin(),a[i].end(),x);
-                           if(it==a[i].end()){
-                               a[i].push_back(x);
-                           }
-                       }if(q!=i){
-                           a.erase(q);
-                       }
+                           if(q!=i)a[i].push_back(x);
+                       }if(q!=i)a.erase(q);
                     }else{
-                        m[p.front()]=false;
+                        b[p.front()]=false;
                         p.pop();
                     }
                 }
