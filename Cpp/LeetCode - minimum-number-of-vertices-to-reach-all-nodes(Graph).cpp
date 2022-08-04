@@ -10,20 +10,13 @@ public:
                 l=i;
             }
         }
-        traverse(a[l],b,a);
+        for(auto x:a[l]){
+            b[x]=false;
+        }
         b[l]=false;
         c.push_back(l);
         for(auto x:b){
             if(x==true)solution(n,a,b,c);
-        }
-    }
-    void traverse(vector<int>& c,vector<bool>& b,map<int,vector<int>>& a){
-        for(auto x:c){
-            if(b[x]==true){
-                b[x]=false;
-                if(a.find(x)!=a.end()){
-                traverse(a[x],b,a);}
-            }
         }
     }
     vector<int> findSmallestSetOfVertices(int n, vector<vector<int>>& edges) {
@@ -32,27 +25,37 @@ public:
         for(int i=0;i<edges.size();i++){
             a[edges[i][0]].push_back(edges[i][1]);
         }
-        
         for(int i=0;i<n;i++){
             if(a.find(i)!=a.end()){
-   L:
-            int z=a[i].size();
-        for(auto c:a[i]){
-            if(a.find(c)!=a.end()&&b[c]!=false){
-                b[c]=false;
-                for(auto y:a[c]){
-                    a[i].push_back(y);
+                vector<bool> m(n,true);
+                queue<int> p;
+                p.push(i);
+                while(!p.empty()){
+                    if(a.find(p.front())!=a.end()&&m[p.front()]==true){
+                       m[p.front()]=false;
+                        if(p.front()!=i){
+                            b[p.front()]=false;
+                        }
+                        int q=p.front();
+                        p.pop();
+                       for(auto x:a[q]){
+                           p.push(x);
+                           vector<int>::iterator it;
+                           it=find(a[i].begin(),a[i].end(),x);
+                           if(it==a[i].end()){
+                               a[i].push_back(x);
+                           }
+                       }
+                    }else{
+                        m[p.front()]=false;
+                        p.pop();
+                    }
                 }
             }
         }
-            if(a[i].size()!=z)goto L;
-            
-      }
-        }
+        
         vector<int> c;
-        vector<int>::iterator it;
         solution(n,a,b,c);
-       
         return c;
         
     }
