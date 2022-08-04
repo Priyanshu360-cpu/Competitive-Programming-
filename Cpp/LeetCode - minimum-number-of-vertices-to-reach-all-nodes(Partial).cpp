@@ -32,7 +32,20 @@ public:
             a[edges[i][0]].push_back(edges[i][1]);
         }
         vector<int> c;
+        vector<int>::iterator it;
         solution(n,a,b,c);
+        for(int i=0;i<c.size();i++){
+            for(int j=0;j<c.size();j++){
+                if(j==i)continue;
+                else{
+                    it=find(a[c[i]].begin(),a[c[i]].end(),c[j]);
+                    if(it!=a[c[i]].end()){
+                     c.erase(c.begin()+j);   
+                    }
+                }
+            }
+        }
         return c;
+        
     }
 };
