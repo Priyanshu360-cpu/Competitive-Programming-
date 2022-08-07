@@ -1,3 +1,4 @@
+\\ Brute Force 
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -36,5 +37,29 @@ public:
             }
         }
         return w;
+    }
+};
+
+\\ Better Approach
+
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int left[height.size()];
+        int right[height.size()];
+        left[0]=height[0];
+        for(int i=1;i<height.size();i++){
+            left[i]=max(height[i],left[i-1]);
+        }
+        right[height.size()-1]=height[height.size()-1];
+        for(int i=height.size()-2;i>=0;i--){
+            right[i]=max(right[i+1],height[i]);
+        }
+        int c=0;
+        for(int i=1;i<height.size()-1;i++){
+            int d = min(left[i-1],right[i+1]);
+            if(d>height[i])c+=d-height[i];
+        }
+        return c;
     }
 };
