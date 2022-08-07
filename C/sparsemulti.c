@@ -1,3 +1,5 @@
+//Brute Force Method
+
 #include <stdio.h>
 int main(){
     int n;
@@ -58,6 +60,69 @@ for(int i=0;i<n;i++){
             }
         }
     }
+}
+    for(int i=0;i<n;i++){
+        for(int j=0;j<g;j++){
+            printf("%d\t",c[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//Optimistic Method
+
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    int g;
+    scanf("%d",&g);
+    printf("Enter No. of input in first array\n");
+struct value{
+    int j;
+    int i;
+    int v;
+}s[n];
+struct sec{
+    int j;
+    int i;
+    int v;
+}w[g];
+int del=0;
+    int f;
+    scanf("%d",&f);
+    while(f--){
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
+            s[del].j=y;
+            s[del].i=x;
+            s[del].v=z;
+            del++;
+    }
+    printf("Enter No. of input in second array\n");
+    int m;
+    scanf("%d",&m);
+    int delta=0;
+    while(m--){
+        int x,y,z;
+        scanf("%d%d%d",&x,&y,&z);
+        w[delta].j=x;
+        w[delta].i=y;
+        w[delta].v=z;
+        delta++;
+    }
+    int c[n][g];
+    for(int i=0;i<n;i++){
+        for(int j=0;j<g;j++){
+            c[i][j]=0;
+            }
+    }
+for(int i=0;i<n;i++){
+    for(int j=0;j<g;j++){
+        if(s[i].j==w[j].j){
+            c[s[i].i][w[j].i]=s[i].v*w[j].v;
+        }
+  }
 }
     for(int i=0;i<n;i++){
         for(int j=0;j<g;j++){
