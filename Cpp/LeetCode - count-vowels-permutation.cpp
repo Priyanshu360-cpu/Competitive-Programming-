@@ -1,3 +1,5 @@
+\\ BRUTE FORCE METHOD
+
 class Solution {
 public:
     int countVowelPermutation(int n) {
@@ -31,5 +33,28 @@ public:
             }
         }
         return a.size()%1000000007;
+    }
+};
+
+\\ TREE METHOD
+
+class Solution {
+public:
+    int countVowelPermutation(int n) {
+       long long int a=1,e=1,i=1,o=1,u=1;
+        for(int r=1;r<n;r++){
+            long long int  b,c,d,f,g;
+            b = (e+i+u) % 1000000007;
+            c = (a+i) % 1000000007;
+            d = (e+o) % 1000000007;
+            f = i % 1000000007;
+            g = (o+i) % 1000000007;
+            a=b;
+            e=c;
+            i=d;
+            o=f;
+            u=g;
+        }
+        return (a+e+i+o+u) % 1000000007;
     }
 };
