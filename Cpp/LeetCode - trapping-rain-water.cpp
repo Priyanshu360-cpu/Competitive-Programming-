@@ -1,4 +1,4 @@
-\\ Brute Force 
+//Brute Force 
 class Solution {
 public:
     int trap(vector<int>& height) {
@@ -40,7 +40,7 @@ public:
     }
 };
 
-\\ Better Approach
+//Better Approach
 
 class Solution {
 public:
