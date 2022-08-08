@@ -71,7 +71,6 @@ for(int i=0;i<n;i++){
 
 //Optimistic Method
 
-
 #include <stdio.h>
 
 typedef struct{
