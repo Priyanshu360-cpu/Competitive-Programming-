@@ -71,23 +71,22 @@ for(int i=0;i<n;i++){
 
 //Optimistic Method
 
+
 #include <stdio.h>
+
+typedef struct{
+    int j;
+    int i;
+    int v;
+} matrix;
+
 int main(){
     int n;
     scanf("%d",&n);
     int g;
     scanf("%d",&g);
     printf("Enter No. of input in first array\n");
-struct value{
-    int j;
-    int i;
-    int v;
-}s[n];
-struct sec{
-    int j;
-    int i;
-    int v;
-}w[g];
+matrix s[n],w[g];
 int del=0;
     int f;
     scanf("%d",&f);
