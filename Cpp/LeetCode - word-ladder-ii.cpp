@@ -1,6 +1,7 @@
 class Solution {
 public:
     void doit(map<string,bool> e,vector<string> wordsList,string a,string endo,int* c,vector<string> q, vector<vector<string>>& f){
+        
         q.push_back(a);
         if(a==endo){
             *c=*c+1;
@@ -16,9 +17,10 @@ public:
                     map<char,int> w;
                     for(auto y:x)w[y]+=1;
                     int d=0;
-                    for(auto y:x)if(b[y]!=w[y])d++;
+                    for(auto y:x)if(b[y]==0&&b[y]!=w[y])d++;
                     if(d==1){
                         e[x]=false;
+                        cout<<e[x];
                         doit(e,wordsList,x,endo,c,q,f);
                     }
                 }
@@ -53,6 +55,7 @@ public:
                     e[wordList[i]]=false;
                     vector<string> q;
                     q.push_back(beginWord);
+                    
                     doit(e,wordList,wordList[i],endWord,&c,q,f);
                 }
             }
