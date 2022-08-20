@@ -57,6 +57,17 @@ public:
                 }
             }
             cout<<c;
+            if(f.size()>0){
+                int m=f[0].size();
+                vector<vector<string>> k;
+                for(auto x:f){
+                    if(x.size()<m)m=x.size();
+                }
+                for(auto x:f){
+                    if(x.size()==m)k.push_back(x);
+                }
+                return k;
+            }
           return f;
         }
     }
