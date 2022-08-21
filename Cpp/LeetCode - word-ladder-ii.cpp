@@ -1,23 +1,54 @@
 class Solution {
 public:
     void doit(map<string,bool> e,vector<string> wordsList,string a,string endo,int* c,vector<string> q, vector<vector<string>>& f){
-        cout<<a;
+        
         q.push_back(a);
         if(a==endo){
             *c=*c+1;
             f.push_back(q);
             return;}
         else{
-        map<char,int> b;
-            for(auto x:a){
-                b[x]+=1;
+        map<char,vector<int>> b;
+            for(int i=0;i<a.size();i++){
+                b[a[i]].push_back(i);
             }
             for(auto x:wordsList){
                 if(e[x]==true){
-                    map<char,int> w;
-                    for(auto y:x)w[y]+=1;
+                    map<char,vector<int>> w;
+                    for(int i=0;i<x.size();i++)w[x[i]].push_back(i);
                     int d=0;
-                    for(auto y:a)if(w[y]==0)d++;
+                    vector<int> s;
+                    vector<int>::iterator r;
+                  for(auto x:b){
+                      if(b[x.first]!=w[x.first]){
+                        if(w[x.first].size()==0){
+                         if(b[x.first].size()==1){
+                             cout<<b[x.first][0];
+                             r=find(s.begin(),s.end(),b[x.first][0]);
+                             if(r==s.end()){
+                                 s.push_back(b[x.first][0]);
+                                   d+=1;
+                             }
+                         }
+                    }else{
+                             vector<int>::iterator it;
+                             for(auto y:w[x.first]){
+                                 it=find(b[x.first].begin(),b[x.first].end(),y);
+                                 
+                                 if(it==b[x.first].end()){
+                             r=find(s.begin(),s.end(),y);
+                             if(r==s.end()){
+                                 s.push_back(y);
+                                   d+=1;
+                             }
+                                         cout<<y<<endl;
+                                     
+                                 }
+                             }
+                         }   
+                      }
+                  }
+                    cout<<a<<" "<<x<<d<<endl;
                     if(d==1){
                         e[x]=false;
                         doit(e,wordsList,x,endo,c,q,f);
@@ -37,18 +68,28 @@ public:
             for(auto x:wordList){
                 e[x]=true;
             }
-            map<char,int> a;
-            for(auto x:beginWord){
-                a[x]+=1;
+            map<char,vector<int>> a;
+            for(int i=0;i<beginWord.size();i++){
+                a[beginWord[i]].push_back(i);
             }
             for(int i=0;i<wordList.size();i++){
-                map<char,int> b;
+                map<char,vector<int>> b;
                 int d=0;
-                for(auto x:wordList[i]){
-                    b[x]+=1;
+                for(int j=0;j<wordList[i].size();j++){
+                    b[wordList[i][j]].push_back(j);
                 }
-                for(auto x:wordList[i]){
-                    if(a[x]==0)d++;
+                for(auto x:b){
+                    if(a[x.first]!=b[x.first]){
+                         if(a[x.first].size()==0){
+                         if(b[x.first].size()==1)d++;
+                    }else{
+                             vector<int>::iterator it;
+                             for(auto y:a[x.first]){
+                                 it=find(b[x.first].begin(),b[x.first].end(),y);
+                                 if(it==b[x.first].end())d++;
+                             }
+                         }
+                }
                 }
                 if(d==1){
                     e[beginWord]=false;
@@ -59,7 +100,7 @@ public:
                     doit(e,wordList,wordList[i],endWord,&c,q,f);
                 }
             }
-            cout<<c;
+       
             if(f.size()>0){
                 int m=f[0].size();
                 vector<vector<string>> k;
