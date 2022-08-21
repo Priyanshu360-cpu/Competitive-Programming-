@@ -17,3 +17,4 @@ public:
         return minsum(dp,grid,grid.size()-1,grid[0].size()-1);
     }
 };
+// Leetcode Discussion - https://leetcode.com/problems/minimum-path-sum/discuss/2459299/C%2B%2B-oror-DP-Solution-oror-Memomization-oror
