@@ -17,7 +17,7 @@ public:
                     map<char,int> w;
                     for(auto y:x)w[y]+=1;
                     int d=0;
-                    for(auto y:x)if(b[y]==0)d++;
+                    for(auto y:a)if(w[y]==0)d++;
                     if(d==1){
                         e[x]=false;
                         doit(e,wordsList,x,endo,c,q,f);
@@ -48,9 +48,10 @@ public:
                     b[x]+=1;
                 }
                 for(auto x:wordList[i]){
-                    if(b[x]!=a[x])d++;
+                    if(a[x]==0)d++;
                 }
                 if(d==1){
+                    e[beginWord]=false;
                     e[wordList[i]]=false;
                     vector<string> q;
                     q.push_back(beginWord);
