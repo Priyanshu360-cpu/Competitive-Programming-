@@ -2,7 +2,15 @@ class Solution {
 public:
     void solvable(map<int,vector<int>> a,vector<int>& dp,int k){
         map<int,bool> b;
-
+        int g=0;
+        for(auto x:a[k])g+=1;
+        for(auto x:a[k]){
+            if(dp[x]!=0){
+                cout<<x;
+                dp[k]=dp.size()+dp[x]-2*(g);
+                return;
+            }
+        }
 for(int i=0;i<dp.size();i++)b[i]=false;
 for(auto x:a[k])b[x]=true;
 b[k]=true;
