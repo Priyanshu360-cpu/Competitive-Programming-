@@ -4,6 +4,7 @@ public:
         if(*g==1)return;
         float f=accumulate(rolls.begin(),rolls.end(),0);
         float h=accumulate(o.begin(),o.end(),0);
+        if((f+h)/(rolls.size()+o.size())>mean) return;
         if((f+h)/n==mean){
             for(auto x:o)out.push_back(x);
             *g=1;
