@@ -17,7 +17,7 @@ void swap(struct node* a){
         temp[i]=current;
         current=current->next;
     }
-    for(int i=0;i<(n/2)-1;i++){
+    for(int i=0;i<(n/2);i++){
         temp[i]->next=temp[n-i-1];
         temp[n-i-1]->next=temp[i+1];
     }
