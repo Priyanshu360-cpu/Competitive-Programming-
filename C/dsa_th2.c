@@ -42,8 +42,9 @@ int main(){
     }
     list=list->next;
     swap(list);
+    printf("Swapped List:\n");
     while(list){
-        printf("%d\n",list->val);
+        printf("%d ",list->val);
         list=list->next;
     }
     return 0;
