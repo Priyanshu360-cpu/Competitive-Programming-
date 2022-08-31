@@ -27,12 +27,15 @@ int main(){
     struct node* list=(struct node*)malloc(sizeof(struct node));
     list->next=NULL;
     int n;
-    printf("Enter SIze of List:\n");
+    printf("Enter Size of List:\n");
     scanf("%d",&n);
     struct node* copy=list;
     for(int i=1;i<=n;i++){
         struct node* current=(struct node*)malloc(sizeof(struct node));
-        current->val=i;
+        int x;
+        printf("Enter %d Value:\n",i);
+        scanf("%d",&x);
+        current->val=x;
         current->next=NULL;
         copy->next=current;
         copy=copy->next;
