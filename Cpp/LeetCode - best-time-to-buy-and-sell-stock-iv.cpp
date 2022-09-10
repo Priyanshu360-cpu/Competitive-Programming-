@@ -5,7 +5,7 @@ public:
         int maxe=-1;
         for(auto x:a){
             if(x.first.first>=i){
-                maxe=max(p,p+maxer(a,k+1,x.first.second,x.second,n));
+ maxe=max(maxe,max(p,p+maxer(a,k+1,x.first.second,x.second,n)));
             }
         }
         return maxe;
@@ -14,12 +14,13 @@ public:
         map<pair<int,int>,int> a;
         for(int i=0;i<prices.size();i++){
             for(int j=i+1;j<prices.size();j++){
-                a[{i,j}]=prices[j]-prices[i];
+                a[{prices[i],prices[j]}]=prices[j]-prices[i];
             }
         }
         int maxe=-1;
         for(auto x:a){
-            maxe=max(maxe,maxer(a,1,x.first.second,x.second,k));
+            cout<<x.first.first<<" "<<x.first.second<<endl;
+            maxe=max(maxe,maxer(a,0,x.first.second,x.second,k));
         }
         return maxe;
     }
