@@ -14,7 +14,7 @@ public:
         map<pair<int,int>,int> a;
         for(int i=0;i<prices.size();i++){
             for(int j=i+1;j<prices.size();j++){
-                a[{prices[i],prices[j]}]=prices[j]-prices[i];
+                a[{i,j}]=prices[j]-prices[i];
             }
         }
         int maxe=-1;
