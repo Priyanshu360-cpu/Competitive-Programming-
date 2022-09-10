@@ -5,7 +5,7 @@ public:
         int maxe=-1;
         for(auto x:a){
             if(x.first.first>=i){
- maxe=max(maxe,max(p,p+maxer(a,k+1,x.first.second,x.second,n)));
+ maxe=p+max(0,p+maxer(a,k+1,x.first.second,p+x.second,n));
             }
         }
         return maxe;
@@ -19,7 +19,7 @@ public:
         }
         int maxe=-1;
         for(auto x:a){
-            cout<<x.first.first<<" "<<x.first.second<<endl;
+            cout<<x.second<<endl;
             maxe=max(maxe,maxer(a,0,x.first.second,x.second,k));
         }
         return maxe;
