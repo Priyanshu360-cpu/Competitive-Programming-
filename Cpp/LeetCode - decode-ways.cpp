@@ -2,6 +2,7 @@ class Solution {
 public:
     map<map<int,pair<string,bool>>,bool> c;
     char output(string a){
+        if(a.size()>=2&&a[0]=='0')return '-';
         if(stoi(a)+64>90||stoi(a)+64<65)return '-';
         else return stoi(a)+64;
     }
