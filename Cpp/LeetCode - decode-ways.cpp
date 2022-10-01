@@ -20,7 +20,7 @@ public:
                 cout<<w;
                 if(w=='-'){
                     d[x.first].first=q;
-                    continue;
+                    return 0;
                 }
                 e+=combo(d);
                 d[x.first].first=q;
