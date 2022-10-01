@@ -10,7 +10,7 @@ public:
         c[d]=true;
         int e=0;
         for(auto x:d){
-            if(d[x.first+1].first!=""){
+            if(d.find(x.first+1)!=d.end()){
             if(!d[x.first+1].second){
                 string q="";
                 q+=d[x.first].first;
@@ -20,7 +20,7 @@ public:
                 cout<<w;
                 if(w=='-'){
                     d[x.first].first=q;
-                    return 0;
+                    continue;
                 }
                 e+=combo(d);
                 d[x.first].first=q;
