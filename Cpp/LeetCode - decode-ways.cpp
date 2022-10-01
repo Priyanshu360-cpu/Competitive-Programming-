@@ -9,7 +9,7 @@ public:
     int combo(map<int,pair<string,bool>>& d){
         if(c[d])return 0;
         c[d]=true;
-        int e=1;
+        int e=0;
         for(auto x:d){
             if(d.find(x.first+1)!=d.end()){
             if(!d[x.first+1].second){
@@ -21,9 +21,9 @@ public:
                 cout<<w;
                 if(w=='-'){
                     d[x.first].first=q;
-                    return 0;
+                    continue;
                 }
-                e+=combo(d);
+                e+=1+combo(d);
                 d[x.first].first=q;
                 d[x.first+1].second=false;
             }
