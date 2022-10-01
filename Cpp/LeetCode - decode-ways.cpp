@@ -8,7 +8,7 @@ public:
     int combo(map<int,pair<string,bool>>& d){
         if(c[d])return 0;
         c[d]=true;
-        int e=0;
+        int e=1;
         for(auto x:d){
             if(d.find(x.first+1)!=d.end()){
             if(!d[x.first+1].second){
