@@ -1,3 +1,4 @@
+// O(NLOGN) - TIME LIMIT EXCEEDED;
 class Solution {
 public:
     int minCost(string colors, vector<int>& neededTime) {
@@ -14,6 +15,28 @@ public:
                 neededTime.erase(neededTime.begin()+i+1);
                 }
                 i-=1;
+            }
+        }
+        return j;
+    }
+};
+
+// O(N) - GREEDY APPROACH
+
+class Solution {
+public:
+    int minCost(string colors, vector<int>& neededTime) {
+        int j=0;
+        char b=colors[0];
+        int k=neededTime[0];
+        for(int i=1;i<colors.size();i++){
+          if(colors[i]==b){
+              j+=min(k,neededTime[i]);
+              k=max(k,neededTime[i]);
+          }
+            else{
+                b=colors[i];
+                k=neededTime[i];
             }
         }
         return j;
