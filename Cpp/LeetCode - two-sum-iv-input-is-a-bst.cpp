@@ -1,3 +1,4 @@
+// Two Pointer Approach
 class Solution {
 public:
     map<int,int> a;
@@ -17,3 +18,17 @@ public:
         return false;
     }
 };
+
+// Only with Hashmap solution
+class Solution {
+public:
+    map<int,int> a;
+    bool findTarget(TreeNode* root, int target) {
+        if(!root)return false;
+        if(a.find(target-root->val)!=a.end())return true;
+        a[root->val]=1;
+        return findTarget(root->left,target)||findTarget(root->right,target);
+    }
+};
+
+
