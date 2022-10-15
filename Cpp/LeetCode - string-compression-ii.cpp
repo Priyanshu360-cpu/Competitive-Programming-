@@ -1,7 +1,9 @@
 class Solution {
 public:
-    int j=INT_MAX;
-    int solution(string s,int k,vector<vector<int>>& z){
+    int g=INT_MAX;
+    unordered_map<string,int> y;
+    int solution(string s,int k,vector<vector<int>>& z,int left){
+        if(y.find(s)!=y.end())return y[s];
         if(k==0){
         int i=1;
         char a=s[0];
@@ -28,15 +30,16 @@ public:
              else{
                  char r=s[i];
                  s[i]='_';
-                 j=min(j,solution(s,k-1,z));
+                 g=min(g,solution(s,k-1,z,left));
+                 y[s]=g;
                  s[i]=r;
              }
          }
      }
-        return j;
+        return y[s]=g;
     }
     int getLengthOfOptimalCompression(string s, int k) {
         vector<vector<int>> z(s.size()+1,vector<int>(k+1,INT_MAX));
-        return solution(s,k,z);
+        return solution(s,k,z,0);
     }
 };
