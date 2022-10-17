@@ -6,7 +6,6 @@ public:
         int i=0;
         for(auto x:a){
             if(b[x.first]==true)continue;
-            cout<<x.first;
             i+=1;
             traverse(x.first);
         }
