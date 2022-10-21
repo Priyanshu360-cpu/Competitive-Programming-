@@ -13,6 +13,29 @@ struct node* create(){
     temp->right=NULL;
     return temp;
 }
+void create_tree(struct node* left){
+    int g;
+    printf("Enter 1 for left , 2 for right:, 3 for both, 4 for none:");
+    scanf("%d",&g);
+    if(g==1){
+        left->left=create();
+        create_tree(left->left);
+    }
+    else if(g==2){
+        left->right=create();
+        create_tree(left->right);
+    }
+    else if(g==3){
+        left->left=create();
+        left->right=create();
+        create_tree(left->left);
+        create_tree(left->right);
+    }
+    else{
+        return;
+    }
+
+}
 void inorder(struct node* root){
     if(root==NULL){
         return;
@@ -78,10 +101,7 @@ int main(){
         case 1:
             exit(0);
         case 2:
-            temp->left=create();
-            temp=temp->left;
-            temp1->right=create();
-            temp1=temp1->right;
+            create_tree(root);
         case 3:
             printf("Inorder Traversal:");
             inorder(root);
