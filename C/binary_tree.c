@@ -68,6 +68,8 @@ void deleter(struct node* root){
 }
 int main(){
     struct node* root=create();
+    struct node* temp=root;
+    struct node* temp1=root;
     while(1){
     printf("User Driven Program\n Press 1 to Quit\nPress 2 to Create\nPress 3 for Inorder Traversal\nPress 4 for PreOrder traversal\nPress 5 for PostOrder Traversal\nPress 6 for Searching\nPress 7 for Smallest Element\nPress 8 for Largest Element\nPress 9 for Deletion\n");
     int g;
@@ -76,8 +78,10 @@ int main(){
         case 1:
             exit(0);
         case 2:
-            root->left=create();
-            root->right=create();
+            temp->left=create();
+            temp=temp->left;
+            temp1->right=create();
+            temp1=temp1->right;
         case 3:
             printf("Inorder Traversal:");
             inorder(root);
