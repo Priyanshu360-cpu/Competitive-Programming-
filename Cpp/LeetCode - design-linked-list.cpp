@@ -29,21 +29,21 @@ public:
     }
     
     void addAtTail(int val) {
-         struct node* s=(struct node*) malloc(sizeof(struct node));
+        struct node* s=(struct node*) malloc(sizeof(struct node));
         s->data=val;
         s->next=NULL;
         if(p==NULL){
         p=s;
         }
         else{
-            struct node* q=p;
-        while(q->next!=NULL){
-            q=q->next;
-        }
+        struct node* q=p;
+        while(q->next!=NULL)q=q->next;
             q->next=s;
             }
     }
     void addAtIndex(int index, int val) {
+     if(index==0)addAtHead(val);
+        else{
         int t=1;
         struct node* q=p;
         while(q){
@@ -58,9 +58,12 @@ public:
             q=q->next;
         }
     }
+    }
     
     void deleteAtIndex(int index) {
-          int t=1;
+        if(index==0&&p!=NULL)p=p->next;
+        else{
+        int t=1;
         struct node* q=p;
         while(q){
             if(t==index){
@@ -71,6 +74,7 @@ public:
             t+=1;
             q=q->next;
         }
+    }
     }
 };
 
