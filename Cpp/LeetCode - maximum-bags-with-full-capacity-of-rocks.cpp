@@ -3,8 +3,11 @@
 A kind of Problem which requires greedy approach
 
 # Approach
+
 Store the difference of capacity and rocks in an ordered map. now fill the bag with lesser difference first to make them filled first. after filling them up find the difference between original and final differences. Sum the already filled caskets to yield the final result .
+
 # Complexity
+
 - Time complexity:
 O(nlogn)
 - Space complexity:
