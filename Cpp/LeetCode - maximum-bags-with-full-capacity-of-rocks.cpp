@@ -1,4 +1,5 @@
-# Intuition
+/*
+#Intuition
 A kind of Problem which requires greedy approach
 
 # Approach
@@ -10,7 +11,7 @@ O(nlogn)
 O(n)
 
 # Code
-```
+*/
 class Solution {
 public:
 map<int,int> a;
