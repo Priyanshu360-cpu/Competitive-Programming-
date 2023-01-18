@@ -1,3 +1,29 @@
+//Kadane algorithm and Sliding window (TLE)
+
+class Solution {
+public:
+    int maxSubarraySumCircular(vector<int>& nums) {
+        int maxr=INT_MIN;
+        deque<int> a;
+        for(auto x:nums)a.push_back(x);
+        for(int i=0;i<nums.size();i++){
+            int d=a.front();
+            a.pop_front();
+            a.push_back(d);
+            int maxe=INT_MIN,c=0;
+        for(int i=0;i<a.size();i++){
+            c=c+a[i];
+            maxe=max(c,maxe);
+            if(c<0)c=0;
+         }
+        maxr=max(maxe,maxr);
+        }
+        return maxr;
+    }
+};
+
+// Kadane and reverse Kadane O(n)
+
 class Solution {
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
