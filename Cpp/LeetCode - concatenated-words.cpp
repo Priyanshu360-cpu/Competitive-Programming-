@@ -15,7 +15,7 @@ public:
         for(int i=0;i<b.size();i++){
             if(a->alph[b[i]-'a']==NULL){
                 d=1;
-                if(strictcheck(b.substr(i),g)==true)return true;
+                if(strictcheck(b.substr(i),g,g)==true)return true;
                 insert(b,a,i);
                 break;
             }
@@ -25,13 +25,16 @@ public:
         }
         return d==0;
     }
-    bool strictcheck(string b,struct node* a){
+    bool strictcheck(string b,struct node* a,struct node* g){
         int e=0;
         for(int i=0;i<b.size();i++){
             if(a&&a->alph[b[i]-'a']==NULL){
                 if(i==0)return false;
                 e=1;
-                return strictcheck(b.substr(i),c);
+                a=g;
+                return strictcheck(b.substr(i),a,g);
+            }else{
+                a=a->alph[b[i]-'a'];
             }
         }
         return e==0;
