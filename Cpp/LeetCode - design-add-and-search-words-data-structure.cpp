@@ -19,20 +19,20 @@ struct node* Tree;
     }
     bool searchr(node* Tree1,string word,int i){
         bool ans=false;
-        if(i>=word.size()){
-            cout<<Tree->isend;
-            return true;}
+        if(i==word.size()){
+            return Tree1->isend;
+            }
         if(word[i]=='.'){
             for(int j=0;j<26;j++){
-                if(Tree1->a[j]!=NULL){
-                    ans=ans||searchr(Tree1->a[j],word,i+1);
+                if(Tree1->a[j]!=NULL&&searchr(Tree1->a[j],word,i+1)){
+                    return true;
                 }
             }
+            return false;
         }else{
             if(Tree1->a[word[i]-'a']==NULL)return false;
-            else ans=ans||searchr(Tree1->a[word[i]-'a'],word,i+1);
+            return searchr(Tree1->a[word[i]-'a'],word,i+1);
         }
-        return ans;
     }
     bool search(string word) {
         return searchr(Tree,word,0);
